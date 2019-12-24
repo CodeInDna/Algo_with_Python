@@ -44,7 +44,7 @@ bst = BST(10).insert(5).insert(15).insert(5).insert(2).insert(1).insert(22).inse
 
 # ----------------METHOD 01---------------------#
 # AVERAGE COMPLEXITY = TIME: O(log(n)), SPACE: O(1) 
-# WORST COMPLEXITY = TIME: O(n), SPACE: O(1) 
+# WORST COMPLEXITY = TIME: O(n), SPACE: O(1) - When we have only one branch
 def find_closest_value_in_bst(tree, target):
 	closest = float("inf")
 	currNode = tree
@@ -64,7 +64,7 @@ print(find_closest_value_in_bst(bst, 12))
 
 # ----------------METHOD 02---------------------#
 # AVERAGE COMPLEXITY = TIME: O(log(n)), SPACE: O(log(n)) 
-# WORST COMPLEXITY = TIME: O(n), SPACE: O(n) 
+# WORST COMPLEXITY = TIME: O(n), SPACE: O(n) - When we have only one branch 
 def find_closest_value_in_bst(tree, target):
 	closest = float("inf")
 	return bstHelper(tree, target, closest)
