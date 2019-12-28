@@ -81,7 +81,7 @@ class DoublyLinkedList:
 		node.prev = None
 		node.next = None
 
-	def removeNodes(self, value):
+	def removeNodesWithValue(self, value):
 	# COMPLEXITY = TIME: O(n), SPACE: O(1) 
 		currNode = self.head
 		while currNode:
@@ -134,7 +134,7 @@ class DoublyLinkedList:
 			currNode = currNode.next
 			if currNode is None:
 				# Scenario 3: if the position is last then make it a tail
-				self.setTail(node)
+				self.setTail(nodeToInsert)
 			else:
 				self.insertBefore(currNode, nodeToInsert)
 			count += 1
