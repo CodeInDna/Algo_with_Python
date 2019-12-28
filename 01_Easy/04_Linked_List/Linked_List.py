@@ -26,7 +26,6 @@
 
 
 # ----------------METHOD 01---------------------#
-# COMPLEXITY = TIME: O(), SPACE: O() 
 class Node:
 
 	def __init__(self, value):
@@ -41,31 +40,23 @@ class DoublyLinkedList:
 		self.tail = None
 		self.length = 0
 
-	def setHead(self, value):
-		newNode = Node(value)
+	def setHead(self, node):
+	# COMPLEXITY = TIME: O(1), SPACE: O(1) 
 		if self.head is None:
-			self.head = newNode
-			self.tail = newNode
-		else:
-			currNode = self.head
-			currNode.prev = newNode
-			self.head = newNode
-			self.head.next = currNode
-		return self
+			self.head = node
+			self.tail = node
+			return self
+		self.insertBefore(self.head, node)
 
-	def setTail(self, value):
-		newNode = Node(value)
-		if self.head is None:
-			self.head = newNode
-			self.tail = newNode
-		else:
-			currNode = self.tail
-			currNode.next = newNode
-			self.tail = newNode
-			self.tail.prev = currNode
-		return self
+	def setTail(self, node):
+	# COMPLEXITY = TIME: O(1), SPACE: O(1) 
+		if self.tail is None:
+			self.setHead(node)
+			return 
+		self.insertAfter(self.tail, node)
 
 	def containsNodeWithValue(self, value):
+	# COMPLEXITY = TIME: O(n), SPACE: O(1) 
 		currNode = self.head
 		while currNode:
 			if currNode.value == value:
@@ -73,19 +64,101 @@ class DoublyLinkedList:
 			currNode = currNode.next
 		return False
 
-	def removeNodes(self, value):
-		currNode = self.head
-		
+	def remove(self, node):
+	# COMPLEXITY = TIME: O(1), SPACE: O(1) 
+		if node == self.head:
+			self.head = self.head.next
+		if node == self.tail:
+			self.tail = self.tail.prev
+		self.removeNodeBindings(node)
 
+	def removeNodeBindings(self, node):
+	# COMPLEXITY = TIME: O(1), SPACE: O(1) 
+		if node.prev is not None:
+			node.prev.next = node.next
+		if node.next is not None:
+			node.next.prev = node.prev
+		node.prev = None
+		node.next = None
+
+	def removeNodes(self, value):
+	# COMPLEXITY = TIME: O(n), SPACE: O(1) 
+		currNode = self.head
+		while currNode:
+			nodeToRemove = currNode
+			currNode = currNode.next
+			if nodeToRemove.value == value:
+				self.remove(nodeToRemove)
+		return self
+
+	def insertBefore(self, node, nodeToInsert):
+	# COMPLEXITY = TIME: O(1), SPACE: O(1) 
+		# Scenario 1: if nodeToInsert is the node which is the only node present in the linkedlist(head and tail)
+		if self.head == nodeToInsert and self.tail == nodeToInsert:
+			return
+		# Scenario 2: If nodeToInsert is already in the linkedlist, then first remove it from the DLL and then insert it before the node given
+		self.remove(nodeToInsert)
+		nodeToInsert.prev = node.prev
+		nodeToInsert.next = node
+		if node.prev is None:
+			self.head = nodeToInsert
+		else:
+			node.prev.next = nodeToInsert
+		node.prev = nodeToInsert
+
+	def insertAfter(self, node, nodeToInsert):
+	# COMPLEXITY = TIME: O(1), SPACE: O(1) 
+		# Scenario 1: if nodeToInsert is the node which is the only node present in the linkedlist(head and tail)
+		if self.head == nodeToInsert and self.tail == nodeToInsert:
+			return
+		# Scenario 2: If nodeToInsert is already in the linkedlist, then first remove it from the DLL and then insert it after the node given
+		self.remove(nodeToInsert)
+		nodeToInsert.next = node.next
+		nodeToInsert.prev = node
+		if node.next is None:
+			self.tail = nodeToInsert
+		else:
+			node.next.prev = nodeToInsert
+		node.next = nodeToInsert
+
+	def insertAtPosition(self, position, nodeToInsert):
+	# COMPLEXITY = TIME: O(p), SPACE: O(1) 
+		# Scenario 1: if the position is 1 then make it head
+		if position == 1:
+			self.setHead(nodeToInsert)
+			return
+		# Scenario 2: Iterate over the linked list to find the position where in we have to insert the node
+		currNode = self.head
+		count = 1 
+		while currNode and count != position:
+			currNode = currNode.next
+			if currNode is None:
+				# Scenario 3: if the position is last then make it a tail
+				self.setTail(node)
+			else:
+				self.insertBefore(currNode, nodeToInsert)
+			count += 1
+
+				 
 dll = DoublyLinkedList()
-dll.setHead(2)
-dll.setHead(1)
-dll.setTail(3)
-print(dll.containsNodeWithValue(1))
-# dll.setHead(1)
-# print(dll.tail.value)
-# print(dll.head.value)
-# print(dll.head.next.value)
+first = Node(1)
+second = Node(2)
+third = Node(3)
+fourth = Node(4)
+fifth = Node(5)
+sixth = Node(6)
+seventh = Node(7)
+dll.setHead(first)
+dll.insertBefore(first, second)
+dll.insertBefore(second, third)
+dll.insertBefore(third, fourth)
+dll.insertBefore(fourth, fifth)
+dll.insertBefore(fourth, sixth)
+dll.insertAtPosition(2, seventh)
+node = dll.head
+while node:
+	print(node.value)
+	node = node.next
 # ----------------METHOD 01---------------------#
 
 
