@@ -6,9 +6,8 @@
 
 # Sample input: [0, 1, 21, 33, 45, 45, 61, 71, 72, 73], 33
 # Sample output: 3
-import math
 # ----------------METHOD 01---------------------#
-# COMPLEXITY = TIME: O(logn), SPACE: O(1)
+# COMPLEXITY = TIME: O(log(n)), SPACE: O(1)
 def binarySearch(lst, num):
 	left = 0
 	right = len(lst) - 1
@@ -25,7 +24,7 @@ print(binarySearch([0, 1, 21, 33, 45, 45, 61, 71, 72, 73], 33))
 # ----------------METHOD 01---------------------#
 
 # ----------------METHOD 02---------------------#
-# COMPLEXITY = TIME: O(), SPACE: O()
+# COMPLEXITY = TIME: O(log(n)), SPACE: O(log(n))
 def binarySearch(lst, target):
 	return binarySearchHelper(lst, target, 0, len(lst)-1)
 
