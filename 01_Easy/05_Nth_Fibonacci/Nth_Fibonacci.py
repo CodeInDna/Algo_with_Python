@@ -9,18 +9,18 @@
 
 # ----------------METHOD 01---------------------#
 # COMPLEXITY = TIME: O(n), SPACE: O(1)
-# def getNthFib(n):
-# 	a = 0
-# 	b = 1
-# 	if n == 1:
-# 		return 0
-# 	if n == 2:
-# 		return 1
-# 	for i in range(n-2):
-# 		z = a + b
-# 		a = b
-# 		b = z
-# 	return z
+def getNthFib(n):
+	a = 0
+	b = 1
+	if n == 1:
+		return 0
+	if n == 2:
+		return 1
+	for i in range(n-2):
+		z = a + b
+		a = b
+		b = z
+	return z
 # ----------------METHOD 01---------------------#
 
 # ----------------METHOD 02---------------------#
@@ -32,11 +32,21 @@ def getNthFib(n):
 		return 1
 	else:
 		return getNthFib(n - 1) + getNthFib(n - 2)
+# ----------------METHOD 02---------------------#
+
+# ----------------METHOD 03---------------------#
+# COMPLEXITY = TIME: O(n), SPACE: O(n)
+def getNthFib(n, memoize = {1: 0, 2: 1}):
+	if n in memoize:
+		return memoize[n]
+	else:
+		memoize[n] = getNthFib(n - 1, memoize) + getNthFib(n - 2, memoize)
+		# print(memoize[n])
+		return memoize[n]
 
 print(getNthFib(6))
 print(getNthFib(9))
 print(getNthFib(7))
 print(getNthFib(1))
-print(getNthFib(0))
 print(getNthFib(2))
-# ----------------METHOD 02---------------------#
+# ----------------METHOD 03---------------------#
