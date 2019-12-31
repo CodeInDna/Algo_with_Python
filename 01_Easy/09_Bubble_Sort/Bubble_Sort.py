@@ -1,5 +1,5 @@
 # ---------------------------------- PROBLEM 09 (EASY) --------------------------------------#
-# Palindrome Check
+# Bubble Sort
 # Write a function that takes in array and returns a sorted array.
 # USe buuble Sort to sort items.
 
