@@ -11,17 +11,6 @@ def swap(idx1, idx2, lst):
 	return lst
 
 # ----------------METHOD 01---------------------#
-# COMPLEXITY = TIME: O(n^2), SPACE: O(1) 
-def insertionSort(lst):
-	for i in range(1, len(lst)):
-		for j in range(i, 0, -1):
-			if lst[j] < lst[j-1]:
-				lst = swap(j, j-1, lst)
-			print(lst)
-	return lst
-# ----------------METHOD 01---------------------#
-
-# ----------------METHOD 02---------------------#
 # BEST: COMPLEXITY = TIME: O(n), SPACE: O(1) 
 # AVERAGE/WORST: COMPLEXITY = TIME: O(n^2), SPACE: O(1) 
 def insertionSort(lst):
@@ -31,4 +20,4 @@ def insertionSort(lst):
 			swap(j, j-1, lst)
 			j-=1
 	return lst
-# ----------------METHOD 02---------------------#
+# ----------------METHOD 01---------------------#
