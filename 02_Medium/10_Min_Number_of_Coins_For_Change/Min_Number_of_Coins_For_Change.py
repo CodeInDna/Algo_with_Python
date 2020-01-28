@@ -1,4 +1,4 @@
-# ---------------------------------- PROBLEM 09 (MEDIUM) --------------------------------------#
+# ---------------------------------- PROBLEM 10 (MEDIUM) --------------------------------------#
 # Min Number of Coins for Change
 # Given an array of positive integers representing coin denominations and a single non-negative 
 # integer representing a target amount of money, implement a function that returns the smallest 
