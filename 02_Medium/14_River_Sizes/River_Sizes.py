@@ -1,4 +1,4 @@
-# ---------------------------------- PROBLEM 13 (MEDIUM) --------------------------------------#
+# ---------------------------------- PROBLEM 14 (MEDIUM) --------------------------------------#
 # River Sizes
 # You are given a two-dimensional array (matrix) of potentially unequal height and width containing 
 # only 0s and 1s. Each 0 represents land, and each 1 represents part of a river. A river consists of 
