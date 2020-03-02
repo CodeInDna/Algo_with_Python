@@ -19,17 +19,18 @@
 # -> [6, 7, 8, 24, 8, 24, 24, 391, 76, 56, 12, 41, 48, 87]
 
 # ----------------METHOD 01---------------------#
-# COMPLEXITY = TIME: O(), SPACE: O()
 class MinHeap:
 	def __init__(self, array):
 		self.heap = self.buildHeap(array)
 
+	# COMPLEXITY = TIME: O(n), SPACE: O(1)
 	def buildHeap(self, array):
 		firstParentIdx = (len(array) - 2)//2
 		for currentIdx in reversed(range(firstParentIdx + 1)):
 			self.siftDown(currentIdx, len(array)-1, array)
 		return array
 
+	# COMPLEXITY = TIME: O(log(n)), SPACE: O(1)
 	def siftDown(self, currentIdx, endIdx, heap):
 		childOneIdx = currentIdx * 2 + 1
 		while childOneIdx <= endIdx:
@@ -45,6 +46,7 @@ class MinHeap:
 			else:
 				return
 
+	# COMPLEXITY = TIME: O(log(n)), SPACE: O(1)
 	def siftUp(self, currentIdx, heap):
 		parentIdx = (currentIdx - 1) // 2
 		while currentIdx > 0 and heap[currentIdx] < heap[parentIdx]:
@@ -52,15 +54,18 @@ class MinHeap:
 			currentIdx = parentIdx
 			parentIdx = (currentIdx - 1)//2
 
+	# COMPLEXITY = TIME: O(1), SPACE: O(1)
 	def peek(self):
 		return self.heap[0]
 
+	# COMPLEXITY = TIME: O(log(n)), SPACE: O(1)
 	def remove(self):
 		self.swap(0, len(self.heap) - 1, self.heap)
 		valueToRemove = self.heap.pop()
 		self.siftDown(0, len(self.heap) - 1, self.heap)
 		return valueToRemove
 
+	# COMPLEXITY = TIME: O(log(n)), SPACE: O(1)
 	def insert(self, value):
 		self.heap.append(value)
 		self.siftUp(len(self.heap) - 1, self.heap)
