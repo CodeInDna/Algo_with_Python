@@ -35,6 +35,4 @@ def buildSequence(lst, sequences, currIdx):
 		sequence.append(lst[currIdx])
 		currIdx = sequences[currIdx]
 	return sequence[::-1]
-print(maxSumIncreasingSubsequence([8, 12, 2, 3, 15, 5, 7]))
-
 # ----------------METHOD 01---------------------#

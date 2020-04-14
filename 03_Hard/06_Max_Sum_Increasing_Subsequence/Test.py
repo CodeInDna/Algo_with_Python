@@ -1,4 +1,4 @@
-from Max_Sum_Increasing_Sequence import maxSumIncreasingSubsequence
+from Max_Sum_Increasing_Subsequence import maxSumIncreasingSubsequence
 import unittest
 
 
