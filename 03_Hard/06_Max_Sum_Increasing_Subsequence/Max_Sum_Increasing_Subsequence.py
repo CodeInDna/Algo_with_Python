@@ -1,4 +1,4 @@
-# ---------------------------------- PROBLEM 5 (HARD) --------------------------------------#
+# ---------------------------------- PROBLEM 6 (HARD) --------------------------------------#
 # Max Sum Increasing Subsequence
 
 # Given an non-empty array of integers, write a function that returns an array of length 2. The 
