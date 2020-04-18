@@ -28,10 +28,12 @@ def minNumberOfJumps(lst):
 # ----------------METHOD 02---------------------#
 # COMPLEXITY = TIME: O(n), SPACE: O(1)
 def minNumberOfJumps(lst):
+	if len(lst) == 1:
+		return 0
 	jumps = 0
 	maxReach = lst[0]
 	steps = lst[0]
-	for i in range(1, len(lst)):
+	for i in range(1, len(lst) - 1):
 		maxReach = max(maxReach, lst[i] + i)
 		steps -= 1
 		if steps == 0:
@@ -39,4 +41,3 @@ def minNumberOfJumps(lst):
 			steps = maxReach - i
 	return jumps + 1
 # ----------------METHOD 02---------------------#
-print(minNumberOfJumps([3, 4, 2, 1, 2, 3, 7, 1, 1, 1, 3]))
