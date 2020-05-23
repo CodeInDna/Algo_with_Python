@@ -1,4 +1,4 @@
-from Continous_Median import getMedian
+from Continous_Median import *
 import unittest
 
 
