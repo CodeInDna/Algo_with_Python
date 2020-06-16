@@ -35,7 +35,7 @@ def char_count(string):
 	# define an object to return in the end
 	str_lower = string.lower()
 
-	charCount = {char: str_lower.count(char) for char in str_lower if char.isalnum()}
+	charCount = {char: str_lower.count(char) for char in set(str_lower) if char.isalnum()}
 	
 	# return object with char count
 	return charCount
