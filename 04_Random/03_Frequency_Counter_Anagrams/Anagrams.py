@@ -11,8 +11,6 @@
 # ----------------METHOD 01---------------------#
 # COMPLEXITY = TIME: O(n), BEST CASE SPACE: O(logn), WORST/AVERAGE SPACE: O(n)
 def validAnagrams(str1, str2):
-	# If any of the string is empty
-	if len(str1) == 0 or len(str2) == 0: return False
 
 	# if both are of different length, return False
 	if len(str1) != len(str2): return False
@@ -38,8 +36,6 @@ def validAnagrams(str1, str2):
 # ----------------METHOD 02---------------------#
 # COMPLEXITY = TIME: O(n), SPACE: O(1)
 def validAnagrams(str1, str2):
-	# If any of the string is empty
-	if len(str1) == 0 or len(str2) == 0: return False
 
 	# if both are of different length, return False
 	if len(str1) != len(str2): return False
@@ -51,8 +47,6 @@ def validAnagrams(str1, str2):
 # COMPLEXITY = TIME: O(n), SPACE: O(1)
 from collections import Counter
 def validAnagrams(str1, str2):
-	# If any of the string is empty
-	if len(str1) == 0 or len(str2) == 0: return False
 
 	# if both are of different length, return False
 	if len(str1) != len(str2): return False
