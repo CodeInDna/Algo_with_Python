@@ -1,4 +1,4 @@
-# ---------------------- PROBLEM 04 (RANDOM) ----------------------------------#
+# ---------------------- PROBLEM 05 (RANDOM) ----------------------------------#
 # Write a function called sameFrequency. Given two positive numbers, find out 
 # if the two numbers have the same frequency of digits
 
