@@ -1,4 +1,4 @@
-# ---------------------- PROBLEM 08 (RANDOM) ----------------------------------#
+# ---------------------- PROBLEM 09 (RANDOM) ----------------------------------#
 # Write a function called minSubarrayLen which accepts two parameters - an array
 # of positive integers and a positive integer. The function should return the minimum
 # length of a contigous subarray of which the sum is greater than or equal to the integer
@@ -12,7 +12,7 @@
 def minSubarrayLen(arr, target):
 	minSubLen = float("inf")
 
-	for i in range(len(arr)-1):
+	for i in range(len(arr)):
 		total = 0
 		j = i
 		while j < len(arr):

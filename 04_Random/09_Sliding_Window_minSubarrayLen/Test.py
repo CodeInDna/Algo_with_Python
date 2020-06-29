@@ -24,5 +24,11 @@ class TestProgram(unittest.TestCase):
 	def test_case_7(self):
 		self.assertEqual(minSubarrayLen([1,4,16,22,5,7,8,9,10], 39), 3)
 
+	def test_case_8(self):
+		self.assertEqual(minSubarrayLen([1,4,16,22,5,7,8,9,39], 39), 1)
+
+	def test_case_9(self):
+		self.assertEqual(minSubarrayLen([39], 39), 1)
+
 if __name__=='__main__':
 	unittest.main()
