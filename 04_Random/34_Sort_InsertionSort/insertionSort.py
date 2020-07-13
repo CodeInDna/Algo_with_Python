@@ -6,7 +6,7 @@
 # Sample output: [1, 2, 3, 4, 5]
 
 # ----------------METHOD 01---------------------#
-# COMPLEXITY = TIME: O(n), SPACE: O(1)
+# COMPLEXITY = WORST/AVERAGE TIME: O(n), BEST TIME: O(n), SPACE: O(1)
 def insertionSort(arr):
 	for i in range(1, len(arr)):
 		j = i-1
@@ -18,4 +18,3 @@ def insertionSort(arr):
 	return arr 
 
 # ----------------METHOD 01---------------------#
-print(insertionSort([5,3,4,1,2]))
