@@ -1,4 +1,4 @@
-# ---------------------- PROBLEM 33 (RANDOM) ----------------------------------#
+# ---------------------- PROBLEM 36 (RANDOM) ----------------------------------#
 # Write a function called quickSort which accepts an array return the sorted array 
 # in ascending order.
 

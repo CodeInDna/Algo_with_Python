@@ -1,4 +1,4 @@
-# ---------------------- PROBLEM 33 (RANDOM) ----------------------------------#
+# ---------------------- PROBLEM 35 (RANDOM) ----------------------------------#
 # Write a function called mergeSort which accepts an array return the sorted array 
 # in ascending order.
 

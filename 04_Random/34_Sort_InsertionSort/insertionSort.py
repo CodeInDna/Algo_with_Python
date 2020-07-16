@@ -1,4 +1,4 @@
-# ---------------------- PROBLEM 32 (RANDOM) ----------------------------------#
+# ---------------------- PROBLEM 34 (RANDOM) ----------------------------------#
 # Write a function called insertionSort which accepts an array return the sorted array 
 # in ascending order.
 
