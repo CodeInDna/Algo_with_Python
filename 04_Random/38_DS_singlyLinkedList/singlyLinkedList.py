@@ -54,10 +54,22 @@ class SLL:
 		return currNode.val 
 	# ----------------METHOD 03---------------------#
 
-sll_1 = SLL().push(1).push(2).push(3)
+	# ----------------METHOD 04---------------------#
+	# COMPLEXITY = TIME: O(1), SPACE: O(1)
+	def shift(self):
+		if not self.head: return None 
 
-sll_1.traverse()
-sll_1.pop()
-sll_1.pop()
-sll_1.pop()
+		currNode = self.head
+		self.head = currNode.next
+
+		self.length -= 1
+		if self.length == 0: self.tail = None
+
+		return currNode.val
+	# ----------------METHOD 04---------------------#
+
+sll_1 = SLL().push(1).push(2).push(3)
+sll_1.shift()
+sll_1.shift()
+
 sll_1.traverse()
