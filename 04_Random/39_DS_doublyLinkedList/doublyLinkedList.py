@@ -1,5 +1,6 @@
 # ---------------------- PROBLEM 38 (RANDOM) ----------------------------------#
-# Create Doubly Linked List along with methods: push, traverse, pop etc
+# Create Doubly Linked List along with methods: push, traverse, pop, shift, unshift,
+# insert, remove, get, set, reverse etc
 
 class Node:
 	def __init__(self, val):
@@ -86,8 +87,95 @@ class DLL:
 			self.head.prev = newNode
 			newNode.next = self.head
 			self.head = newNode
-
-		self.length += 1 
+		self.length += 1
 		return self
 	# ----------------METHOD 05---------------------#
-	
+
+	# ----------------METHOD 06---------------------#
+	# COMPLEXITY = WORST/AVERAGE TIME: O(n/2) or O(n), BEST TIME: O(1), SPACE: O(1)
+	def get(self, idx):
+		if idx < 0 or idx >= self.length: return None
+
+		if idx <= self.length//2:
+			currNode = self.head
+			counter = 0
+			while counter != idx:
+				currNode = currNode.next
+				counter += 1
+		else:
+			currNode = self.tail
+			counter = self.length-1
+			while counter != idx:
+				currNode = currNode.prev
+				counter -= 1
+		return currNode
+ 	# ----------------METHOD 06---------------------#
+
+ 	# ----------------METHOD 07---------------------#
+	# COMPLEXITY = TIME: O(n), SPACE: O(1)
+	def set(self, idx, val):
+		node = self.get(idx)
+		if node:
+			node.val = val
+			return True
+		return False
+ 	# ----------------METHOD 07---------------------#
+
+ 	# ----------------METHOD 08---------------------#
+	# COMPLEXITY = BEST TIME: O(1), WORST/AVERAGE TIME: O(n) or O(n/2), SPACE: O(1)
+# 1.If pointer is given in this case Time Complexity is O(1).
+# 2.You DON'T have pointer to the node to be deleted(Search and Insert). 
+# In this case Time Complexity is O(n).
+	def insert(self, idx, val):
+		if idx < 0 or idx > self.length: return False
+
+		if idx == 0: return self.unshift(val)
+		if idx == self.length: return self.push(val)
+
+		newNode = Node(val)
+		prevNode = self.get(idx-1)
+		currNext = prevNode.next
+		prevNode.next = newNode
+		newNode.prev = prevNode
+		newNode.next = currNext
+		currNext.prev = newNode
+
+		self.length += 1
+		return True
+ 	# ----------------METHOD 08---------------------#
+
+ 	# ----------------METHOD 09---------------------#
+	# COMPLEXITY = TIME: O(n), SPACE: O(1)
+# 1.If pointer is given in this case Time Complexity is O(1).
+# 2.You DON'T have pointer to the node to be deleted(Search and Delete). 
+# In this case Time Complexity is O(n).
+	def remove(self, idx):
+		if idx < 0 or idx >= self.length: return False
+		if idx == 0: return self.shift()
+		if idx == self.length-1: return self.pop()
+
+		removedNode = self.get(idx) # TIME COMPLEXITY: n or n/2
+		prevNode = removedNode.prev
+		nextNode = removedNode.next
+		prevNode.next, nextNode.prev = nextNode, prevNode
+		removedNode.next, removedNode.prev = None, None
+
+		self.length -= 1
+		return removedNode
+ 	# ----------------METHOD 09---------------------#
+
+
+ 	# ----------------METHOD 10---------------------#
+	# COMPLEXITY = TIME: O(n), SPACE: O(1)
+	def reverse(self):
+		currNode = self.head
+		self.head, self.tail = self.tail, self.head
+		while currNode is not None:
+			prevNode = currNode.prev
+			nextNode = currNode.next
+			currNode.next, currNode.prev = prevNode, nextNode
+			currNode = nextNode
+		return self
+
+ 	# ----------------METHOD 10---------------------#
+
