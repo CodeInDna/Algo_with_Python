@@ -1,5 +1,6 @@
 # ---------------------- PROBLEM 38 (RANDOM) ----------------------------------#
-# Create Singly Linked List along with methods: push, traverse, pop etc
+# Create Singly Linked List along with methods: push, traverse, pop, shift, unshift,
+# insert, remove, get, set, reverse etc
 
 class Node:
 	def __init__(self, val):
