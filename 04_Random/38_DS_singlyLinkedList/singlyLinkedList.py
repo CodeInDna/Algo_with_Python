@@ -155,3 +155,19 @@ class SLL:
 			currNode = nextNode
 		return self
 	# ----------------METHOD 10---------------------#
+
+	# ----------------METHOD 11---------------------#
+	# COMPLEXITY = TIME: O(n), SPACE: O(1)
+	def rotate(self, pos):
+		if pos < 1 or pos >= self.length: return None
+		counter = 0
+		while counter != pos:
+			currNode = self.head
+			nextNode = currNode.next
+			self.head = nextNode
+			currNode.next = None
+			self.tail.next = currNode
+			self.tail = currNode
+			counter += 1
+		return self
+	# ----------------METHOD 11---------------------#
