@@ -96,7 +96,7 @@ class DLL:
 	def get(self, idx):
 		if idx < 0 or idx >= self.length: return None
 
-		if idx <= self.length//2:
+		if idx <= (self.length-1)//2:
 			currNode = self.head
 			counter = 0
 			while counter != idx:
