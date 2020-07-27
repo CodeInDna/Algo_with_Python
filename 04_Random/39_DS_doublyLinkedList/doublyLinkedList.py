@@ -15,7 +15,7 @@ class DLL:
 		self.length = 0
 
 	# ----------------METHOD 01---------------------#
-	# COMPLEXITY = TIME: O(1), SPACE: O(n)
+	# COMPLEXITY = TIME: O(1), SPACE: O(1)
 	def push(self, val):
 		newNode = Node(val)
 		if self.head is None:
@@ -123,9 +123,9 @@ class DLL:
 
  	# ----------------METHOD 08---------------------#
 	# COMPLEXITY = BEST TIME: O(1), WORST/AVERAGE TIME: O(n) or O(n/2), SPACE: O(1)
-# 1.If pointer is given in this case Time Complexity is O(1).
-# 2.You DON'T have pointer to the node to be deleted(Search and Insert). 
-# In this case Time Complexity is O(n).
+	# 1.If pointer is given in this case Time Complexity is O(1).
+	# 2.You DON'T have pointer to the node to be deleted(Search and Insert). 
+	# In this case Time Complexity is O(n).
 	def insert(self, idx, val):
 		if idx < 0 or idx > self.length: return False
 
@@ -146,9 +146,9 @@ class DLL:
 
  	# ----------------METHOD 09---------------------#
 	# COMPLEXITY = TIME: O(n), SPACE: O(1)
-# 1.If pointer is given in this case Time Complexity is O(1).
-# 2.You DON'T have pointer to the node to be deleted(Search and Delete). 
-# In this case Time Complexity is O(n).
+	# 1.If pointer is given in this case Time Complexity is O(1).
+	# 2.You DON'T have pointer to the node to be deleted(Search and Delete). 
+	# In this case Time Complexity is O(n).
 	def remove(self, idx):
 		if idx < 0 or idx >= self.length: return False
 		if idx == 0: return self.shift()
@@ -176,6 +176,5 @@ class DLL:
 			currNode.next, currNode.prev = prevNode, nextNode
 			currNode = nextNode
 		return self
-
  	# ----------------METHOD 10---------------------#
 
