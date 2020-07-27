@@ -14,7 +14,7 @@ class SLL:
 		self.length = 0
 
 	# ----------------METHOD 01---------------------#
-	# COMPLEXITY = TIME: O(1), SPACE: O(n)
+	# COMPLEXITY = TIME: O(1), SPACE: O(1)
 	def push(self, val):
 		newNode = Node(val)
 		if self.head is None:
