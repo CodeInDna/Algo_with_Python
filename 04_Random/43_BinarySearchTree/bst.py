@@ -58,6 +58,22 @@ class BST:
 		return False 
 # ----------------METHOD 02---------------------#
 
+
+# ----------------METHOD 03---------------------#
+	# COMPLEXITY = TIME: O(V + E), SPACE: O(V), V-number of vertices, E-number of edges
+	def bfs(self):
+		node = self.root
+		data = []
+		queue = []
+		queue.append(node)
+		while len(queue):
+			node = queue.pop(0)
+			data.append(node.val)
+			if node.left: queue.append(node.left)
+			if node.right: queue.append(node.right)
+		return data
+# ----------------METHOD 03---------------------#
+
 bst = BST()
 bst.insert(10).insert(5).insert(2).insert(7).insert(13).insert(11).insert(16)
 print(bst.root.val)
@@ -71,3 +87,6 @@ print(bst.root.right.right.val)
 
 print(bst.find(11))
 print(bst.find(12))
+print(bst.find(10))
+
+print(bst.bfs())
