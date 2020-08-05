@@ -74,6 +74,48 @@ class BST:
 		return data
 # ----------------METHOD 03---------------------#
 
+# ----------------METHOD 04---------------------#
+	# COMPLEXITY = TIME: O(V + E), SPACE: O(V), V-number of vertices, E-number of edges
+	def dfs_preorder(self):
+		result = []
+		node = self.root
+
+		def dfs_helper(result, node):
+			result.append(node.val)
+			if node.left: dfs_helper(result, node.left)
+			if node.right: dfs_helper(result, node.right)
+		dfs_helper(result, node)
+		return result
+# ----------------METHOD 04---------------------#
+
+# ----------------METHOD 05---------------------#
+	# COMPLEXITY = TIME: O(V + E), SPACE: O(V), V-number of vertices, E-number of edges
+	def dfs_postorder(self):
+		result = []
+		node = self.root
+
+		def dfs_helper(result, node):
+			if node.left: dfs_helper(result, node.left)
+			if node.right: dfs_helper(result, node.right)
+			result.append(node.val)
+		dfs_helper(result, node)
+		return result
+# ----------------METHOD 05---------------------#
+
+# ----------------METHOD 05---------------------#
+	# COMPLEXITY = TIME: O(V + E), SPACE: O(V), V-number of vertices, E-number of edges
+	def dfs_inorder(self):
+		result = []
+		node = self.root
+
+		def dfs_helper(result, node):
+			if node.left: dfs_helper(result, node.left)
+			result.append(node.val)
+			if node.right: dfs_helper(result, node.right)
+		dfs_helper(result, node)
+		return result
+# ----------------METHOD 05---------------------#
+
 bst = BST()
 bst.insert(10).insert(5).insert(2).insert(7).insert(13).insert(11).insert(16)
 print(bst.root.val)
@@ -90,3 +132,6 @@ print(bst.find(12))
 print(bst.find(10))
 
 print(bst.bfs())
+print(bst.dfs_preorder())
+print(bst.dfs_postorder())
+print(bst.dfs_inorder())
