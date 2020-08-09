@@ -1,4 +1,11 @@
 # ---------------------- PROBLEM 45 (RANDOM) ----------------------------------#
+# Create Heaps with following properties:
+# Types of Heaps: MaxHeap and MinHeap
+# MaxHeap: It is just like a binary tree(two children max) with one major difference, 
+# the parent node holds larger value than the children nodes unlike bst where the 
+# left child holds smaller value than the parent node and right child holds the 
+# larger value than the parent node.
+# MinHeap: The parent node holds smaller value than both of its children. 
 
 class BinaryHeap:
 	def __init__(self):
@@ -27,7 +34,8 @@ class BinaryHeap:
 	def maxHeapRemove(self):
 		self.values[0], self.values[len(self.values)-1] = self.values[len(self.values)-1], self.values[0]
 		popped_node = self.values.pop(len(self.values)-1)
-		self.bubbleDown()
+		if len(self.values) > 0:
+			self.bubbleDown()
 		return self.values	
 
 	def bubbleDown(self):
@@ -63,5 +71,11 @@ maxHeap.maxHeapInsert(40)
 maxHeap.maxHeapInsert(7)
 maxHeap.maxHeapInsert(15)
 maxHeap.maxHeapInsert(26)
-print(maxHeap.maxHeapInsert(32))
-print(maxHeap.maxHeapRemove())
+print(maxHeap.maxHeapInsert(32))# [100, 19, 40, 7, 15, 26, 32]
+print(maxHeap.maxHeapRemove())	# [40, 19, 32, 7, 15, 26]
+print(maxHeap.maxHeapRemove())	# [32, 19, 26, 7, 15]
+print(maxHeap.maxHeapRemove())	# [26, 19, 15, 7]
+print(maxHeap.maxHeapRemove())	# [19, 7, 15]
+print(maxHeap.maxHeapRemove())	# [15, 7]
+print(maxHeap.maxHeapRemove())	# [7]
+print(maxHeap.maxHeapRemove())	# []
