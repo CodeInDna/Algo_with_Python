@@ -1,4 +1,4 @@
-# ---------------------- PROBLEM 45 (RANDOM) ----------------------------------#
+# ---------------------- PROBLEM 46 (RANDOM) ----------------------------------#
 # Create Priority Queue using heaps.
 # E.g. Patients with different priority levels comes in hospital and need to be served 
 # according to the severity of their symptoms. For instance 
