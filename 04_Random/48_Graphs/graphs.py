@@ -21,7 +21,18 @@ class Graph:
 		return self.adjacencyList
 # ----------------METHOD 02---------------------#
 
+# ----------------METHOD 03---------------------#
+	# COMPLEXITY = TIME: O(1), SPACE: O(1)
+	def removeEdge(self, vertex1, vertex2):
+		self.adjacencyList[vertex1].remove(vertex2)
+		self.adjacencyList[vertex2].remove(vertex1)
+		return self.adjacencyList
+# ----------------METHOD 03---------------------#
+
 graph = Graph()
-print(graph.addVertex('A'))
-print(graph.addVertex('B'))
-print(graph.addEdge('B','A'))
+print(graph.addVertex('Tokyo'))
+print(graph.addVertex('Dallas'))
+print(graph.addVertex('Aspen'))
+print(graph.addEdge('Dallas','Tokyo'))
+print(graph.addEdge('Aspen','Dallas'))
+print(graph.removeEdge('Tokyo','Dallas'))
