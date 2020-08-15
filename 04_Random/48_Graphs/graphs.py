@@ -41,6 +41,57 @@ class Graph:
 		return self.adjacencyList
 # ----------------METHOD 04---------------------#
 
+# ----------------METHOD 05---------------------#
+	# COMPLEXITY = TIME: O(|V| + |E|), SPACE: O(V)
+	def dfsRecursive(self, vertex, results=[]):
+		lst = self.adjacencyList
+
+		if not lst[vertex]: return None
+
+		results.append(vertex)
+
+		for node in self.adjacencyList[vertex]:
+			if node not in results:
+				self.dfsRecursive(node, results)
+		return results
+# ----------------METHOD 05---------------------#
+
+# ----------------METHOD 06---------------------#
+	# COMPLEXITY = TIME: O(|V| + |E|), SPACE: O(V)
+	def dfsIterative(self, vertex):
+		lst = self.adjacencyList
+		if not lst[vertex]: return None
+
+		results = []
+		stack = []
+
+		stack.append(vertex)
+		while len(stack) != 0:
+			node = stack.pop()
+			results.append(node)
+			for neigh in lst[node]:
+				if neigh not in results and neigh not in stack:
+					stack.append(neigh)
+		return results
+# ----------------METHOD 06---------------------#
+
+# ----------------METHOD 07---------------------#
+	# COMPLEXITY = TIME: O(|V| + |E|), SPACE: O(V)
+	def bfsIterative(self, vertex):
+		lst = self.adjacencyList
+		if not lst[vertex]: return None
+
+		results = []
+		queue = [vertex]
+		while len(queue) != 0:
+			node = queue.pop(0)
+			results.append(node)
+			for neigh in lst[node]:
+				if neigh not in queue and neigh not in results:
+					queue.append(neigh)
+		return results
+# ----------------METHOD 07---------------------#
+
 graph = Graph()
 graph.addVertex('Tokyo')
 graph.addVertex('Dallas')
@@ -64,3 +115,24 @@ print(graph.removeVertex("Hong Kong"))
 # {'Tokyo': ['Dallas'], 
 # 'Dallas': ['Aspen', 'Los Angeles', 'Tokyo'], 
 # 'Aspen': ['Dallas'], 'Los Angeles': ['Dallas']}
+
+
+print('****************************')
+
+graph_rec = Graph()
+graph_rec.addVertex('A')
+graph_rec.addVertex('B')
+graph_rec.addVertex('C')
+graph_rec.addVertex('D')
+graph_rec.addVertex('E')
+graph_rec.addVertex('F')
+graph_rec.addEdge('A', 'B')
+graph_rec.addEdge('A', 'C')
+graph_rec.addEdge('B', 'D')
+graph_rec.addEdge('C', 'E')
+graph_rec.addEdge('D', 'E')
+graph_rec.addEdge('D', 'F')
+print(graph_rec.addEdge('F', 'E'))
+print(graph_rec.dfsRecursive('A'))  # ['A', 'B', 'D', 'E', 'C', 'F']
+print(graph_rec.dfsIterative('A'))  # ['A', 'C', 'E', 'F', 'D', 'B']
+print(graph_rec.bfsIterative('A'))  # ['A', 'B', 'C', 'D', 'E', 'F']
