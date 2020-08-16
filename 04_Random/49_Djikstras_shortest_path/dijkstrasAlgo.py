@@ -21,7 +21,20 @@ class WeightedGraph:
 		return self.adjacencyList
 # ----------------METHOD 02---------------------#
 
+class PriorityQueue:
+	def __init__(self):
+		self.values = []
 
+	def enqueue(self, val, priority):
+		self.values.append({"val": val, "priority": priority})
+		self.sort()
+		return self.values
+
+	def dequeue(self):
+		return self.pop(0)
+
+	def sort(self):
+		sorted(self.values, key = lambda x: x['priority']) 
 
 weightedGraph = WeightedGraph()
 weightedGraph.addVertex("A")
@@ -29,3 +42,7 @@ weightedGraph.addVertex("B")
 weightedGraph.addVertex("C")
 print(weightedGraph.addEdge("A", "B", 250))
 print(weightedGraph.addEdge("C", "B", 30))
+
+priority = PriorityQueue()
+priority.enqueue("A", 2)
+print(priority.enqueue("B", 1))
