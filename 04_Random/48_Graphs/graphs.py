@@ -92,6 +92,27 @@ class Graph:
 		return results
 # ----------------METHOD 07---------------------#
 
+
+class WeightedGraph:
+	def __init__(self):
+		self.adjacencyList = {}
+
+# ----------------METHOD 01---------------------#
+	# COMPLEXITY = TIME: O(1), SPACE: O(|V| + |E|)
+	def addVertex(self, vertex_name):
+		if vertex_name not in self.adjacencyList:
+			self.adjacencyList[vertex_name] = []
+		return self.adjacencyList
+# ----------------METHOD 01---------------------#
+
+# ----------------METHOD 02---------------------#
+	# COMPLEXITY = TIME: O(1), SPACE: O(|V| + |E|)
+	def addEdge(self, vertex1, vertex2, weight):
+		self.adjacencyList[vertex1].append({"node":vertex2, "weight": weight})
+		self.adjacencyList[vertex2].append({"node":vertex1, "weight": weight})
+		return self.adjacencyList
+# ----------------METHOD 02---------------------#
+
 graph = Graph()
 graph.addVertex('Tokyo')
 graph.addVertex('Dallas')
@@ -136,3 +157,14 @@ print(graph_rec.addEdge('F', 'E'))
 print(graph_rec.dfsRecursive('A'))  # ['A', 'B', 'D', 'E', 'C', 'F']
 print(graph_rec.dfsIterative('A'))  # ['A', 'C', 'E', 'F', 'D', 'B']
 print(graph_rec.bfsIterative('A'))  # ['A', 'B', 'C', 'D', 'E', 'F']
+
+
+print('****************************')
+
+
+weightedGraph = WeightedGraph()
+weightedGraph.addVertex("A")
+weightedGraph.addVertex("B")
+weightedGraph.addVertex("C")
+print(weightedGraph.addEdge("A", "B", 250)) # {'A': [{'node': 'B', 'weight': 250}], 'B': [{'node': 'A', 'weight': 250}], 'C': []}
+print(weightedGraph.addEdge("C", "B", 30)) # {'A': [{'node': 'B', 'weight': 250}], 'B': [{'node': 'A', 'weight': 250}, {'node': 'C', 'weight': 30}], 'C': [{'node': 'B', 'weight': 30}]}
