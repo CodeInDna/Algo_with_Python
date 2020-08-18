@@ -8,7 +8,7 @@
 # Sample output: 55
 
 # ----------------METHOD 01---------------------#
-# COMPLEXITY = TIME: O(n), SPACE: O(1)
+# COMPLEXITY = TIME: O(2^n), SPACE: O(1)
 def fib(number):
 	if number <= 2: return 1
 
