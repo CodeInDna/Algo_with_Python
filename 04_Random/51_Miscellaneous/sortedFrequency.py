@@ -7,7 +7,7 @@
 
 # ----------------METHOD 01---------------------#
 # Using Divide and Conquer
-# COMPLEXITY = TIME: O(), SPACE: O()
+# COMPLEXITY = TIME: O(n), SPACE: O(1)
 def occurrenceSearch(lst, num, SearchFirst):
 	left = 0
 	right = len(arr) - 1
