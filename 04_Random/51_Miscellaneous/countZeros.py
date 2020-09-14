@@ -1,4 +1,4 @@
-# ---------------------- PROBLEM 11 (RANDOM) ----------------------------------#
+# ---------------------- PROBLEM 1 (RANDOM) ----------------------------------#
 # Given an array of 1s and 0s which has all 1s first followed by all 0s, write a
 # function called countZeros, which returns the number of zeros in the array.
 
