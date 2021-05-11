@@ -44,6 +44,13 @@ def getNthFib(n, memoize = {1: 0, 2: 1}):
 		# print(memoize[n])
 		return memoize[n]
 
+# User Input to print fib series
+n = int(input("Enter the value of n: "))
+print("Fibonacci Series: ", end=' ')
+for i in range(1, n):
+	print(getNthFib(i), end=' ')
+
+print('')
 print(getNthFib(6))
 print(getNthFib(9))
 print(getNthFib(7))
