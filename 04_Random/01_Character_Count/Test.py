@@ -18,5 +18,8 @@ class TestProgram(unittest.TestCase):
 	def test_case_5(self):
 		self.assertEqual(char_count("Hello 912041"), {"h": 1, "e": 1, "l": 2, "o":1, "9": 1, "1": 2, "0":1, "4": 1, "2":1})
 
+	def test_case_6(self):
+		self.assertEqual(char_count(91422), False)
+
 if __name__=='__main__':
 	unittest.main()

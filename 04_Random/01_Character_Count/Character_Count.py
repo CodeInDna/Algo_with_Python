@@ -9,6 +9,7 @@
 # COMPLEXITY = TIME: O(n), SPACE: O(n)
 def char_count(string):
 	# if string is empty return False
+	if type(string) != str: return False
 	if not string: return False
 
 	# define an object to return in the end
@@ -30,6 +31,7 @@ def char_count(string):
 # COMPLEXITY = TIME: O(n), SPACE: O(n)
 def char_count(string):
 	# if string is empty return False
+	if type(string) != str: return False
 	if not string: return False
 
 	# define an object to return in the end
@@ -45,6 +47,7 @@ def char_count(string):
 # COMPLEXITY = TIME: O(n), SPACE: O(n)
 def char_count(string):
 	# if string is empty return False
+	if type(string) != str: return False
 	if not string: return False
 
 	# define an object to return in the end
@@ -67,7 +70,6 @@ def check_alnum(char):
 	# if ord(char) > 64 and ord(char) < 91: return True
 	# if ord(char) > 47 and ord(char) < 58: return True
 	# return False
-	
 # ----------------METHOD 03---------------------#
 
 from collections import Counter
@@ -75,6 +77,7 @@ from collections import Counter
 # COMPLEXITY = TIME: O(n), SPACE: O(n)
 def char_count(string):
 	# if string is empty return False
+	if type(string) != str: return False
 	if not string: return False
 
 	charCount = Counter(keep_alnum(string.lower()))
@@ -86,3 +89,5 @@ def keep_alnum(string):
 	string = re.sub(r'[^A-Za-z0-9]+', '', string)
 	return string
 # ----------------METHOD 04---------------------#
+
+

@@ -28,6 +28,38 @@ def searchInSortedMatrix(matrix, target):
 # ----------------METHOD 01---------------------#
 
 # ----------------METHOD 02---------------------#
+# COMPLEXITY = TIME: O(log(n)), SPACE: O(1) 
+def search(arr, target):
+	# Using Divide and Conquer On an array
+	# Define left and right
+	left = 0
+	right = len(arr) - 1
+
+	# loop until result found
+	while left <= right:
+		mid = (left + right) // 2
+		print(left, right, mid, target)
+		# Find the mid
+		if arr[mid] == target:
+			return mid
+		elif target < arr[mid]:
+			right = mid - 1
+		else:
+			left = mid + 1
+	return -1
+
+def searchInSortedMatrix(matrix, target):
+	# iterate over the rows
+	for idx_r, row in enumerate(matrix):
+		# search the target in each row
+		col_idx = search(row, target)
+		if col_idx != -1:
+			# return the arr if column is not -1
+			return [idx_r, col_idx]
+	return [-1, -1]
+# ----------------METHOD 02---------------------#
+
+# ----------------METHOD 03---------------------#
 # COMPLEXITY = TIME: O(n + m) n:length of rows, m:length of the column, SPACE: O(1)
 def searchInSortedMatrix(matrix, target):
 	row = 0
@@ -40,4 +72,4 @@ def searchInSortedMatrix(matrix, target):
 		else:
 			return [row, column]
 	return [-1, -1]
-# ----------------METHOD 02---------------------#
+# ----------------METHOD 03---------------------#
